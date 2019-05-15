@@ -25,14 +25,16 @@ def encrypt_file(key, in_filename, out_filename=None, chunksize=64*1024):
     if not out_filename:
         out_filename = in_filename + '.enc'
 
-    iv = ''.join(chr(random.randint(0, 0xFF)) for i in range(16))
+    iv = ''.join(chr(random.randint(32, 90)) for i in range(16))
+    print(iv)
+    
     encryptor = AES.new(key, AES.MODE_CBC, iv)
     filesize = os.path.getsize(in_filename)
     print(filesize)
     with open(in_filename, 'rb') as infile:
         with open(out_filename, 'wb') as outfile:
             outfile.write(struct.pack('<Q', filesize))
-            outfile.write(iv)
+            outfile.write(iv.encode('utf-8'))
 
             while True:
                 chunk = infile.read(chunksize)
@@ -43,4 +45,5 @@ def encrypt_file(key, in_filename, out_filename=None, chunksize=64*1024):
 
                 outfile.write(encryptor.encrypt(chunk))
 
-encrypt_file('1234567890123456','candado.jpg')
+encrypt_file('0123456789123456','candado.jpg')
+
