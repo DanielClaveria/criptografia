@@ -11,8 +11,8 @@ def check(type, text_check):
         h = MD5.new()
         h.update(text_check.strip().encode())
         print ("Probando MD5: {0} = {1}".format(text_check,h.hexdigest()))
-        if (searchHashMD5 == h.hexdigest()):
-            return True
+        #if (searchHashMD5 == h.hexdigest()):
+        #    return True
     elif type == 'SHA256':
         h = SHA256.new()
         h.update(text_check.encode())
@@ -46,7 +46,7 @@ def combineChars(hashtype,base, width, maxLenght):
             combineChars(hashtype, newBase, width + 1, maxLenght)
 
 
-combineChars('MD5','', 1, 2)
+combineChars('SHA256','', 1, 2)
 
 #for char in charRange:
 #    print(chr(char))
