@@ -51,7 +51,7 @@ def combineChars(base, width, maxLenght):
         else:
             combineChars(newBase, width + 1, maxLenght)
 
-combineChars('81179039', 1, 2)
+combineChars('811790', 1, 4)
 print ("Llave: {0}".format(str(bytes.fromhex('81 17 90 39 b0 00 00 00 00 00 00 00 00 00 00 00'.replace(' ','')))))
 #for char in charRange:
 #    print(chr(char))

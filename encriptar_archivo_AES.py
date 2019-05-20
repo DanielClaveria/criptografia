@@ -63,5 +63,5 @@ class MyFile(object):
 #miarchivo.encriptarAES('1234567890123456','candado.jpg.encDES')
 
 miarchivo = MyFile('','candado.jpg.encDES.jpg')
-miarchivo.desencriptarAES('1234567890123456','can_des.jpg')
+miarchivo.desencriptarAES('1234567890123456','candado.jpg')
 
